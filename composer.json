@@ -1,0 +1,25 @@
+{
+    "name": "chico/compras-api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Francisco",
+            "email": "chicomazfilho@hotmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.11",
+        "illuminate/database": "^5.7",
+        "vlucas/phpdotenv": "*",
+        "toreti/tempo": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Compras\\": "src/",
+            "Test\\": "tests/"
+        }
+    }
+}
