@@ -21,14 +21,14 @@ class Pedido
         return new self(Data::hoje());
     }
 
-    public function adicionarProduto(Produto $produto)
-    {
-        $this->produtos[] = $produto;
-    }
-
     public function id()
     {
         return $this->id;
+    }
+
+    public function adicionarProduto(ProdutoPedido $produto)
+    {
+        $this->produtos[] = $produto;
     }
 
     public function setId($id)

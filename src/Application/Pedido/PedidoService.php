@@ -2,13 +2,11 @@
 
 namespace Compras\Application\Pedido;
 
-use Compras\Application\Produto\ProdutoFactory;
-use Compras\Domain\Pedido\IPedidoRepository;
 use Compras\Domain\Pedido\Pedido;
+use Compras\Domain\Pedido\IPedidoRepository;
 
 class PedidoService
 {
-
     /**
      * @var IPedidoRepository
      */
@@ -29,7 +27,7 @@ class PedidoService
 
         $pedido = Pedido::novo();
         foreach ($produtos as $produto) {
-            $pedido->adicionarProduto(ProdutoFactory::criar($produto));
+            $pedido->adicionarProduto(ProdutoPedidoFactory::criar($produto));
         }
         return $this->pedidoRepository->adicionar($pedido);
     }

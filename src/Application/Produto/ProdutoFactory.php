@@ -12,8 +12,7 @@ class ProdutoFactory
             $dados['nome'],
             $dados['descricao'],
             $dados['valor'],
-            $dados['categoria'],
-            $dados['quantidade']
+            $dados['categoria']
         );
 
         if(isset($dados['id'])){
