@@ -33,7 +33,7 @@ class ProdutoService
     public function atualizar($dados): Produto
     {
         $produto = ProdutoFactory::criar($dados);
-        return $this->produtoRepository->adicionar($produto);
+        return $this->produtoRepository->atualizar($produto);
     }
 
     public function remover($id): Produto

@@ -3,8 +3,9 @@
 namespace Compras\Domain\Pedido;
 
 use Compras\Domain\Produto\Produto;
+use Compras\Infrastructure\Contratos\Arrayable;
 
-class ProdutoPedido
+class ProdutoDoPedido implements Arrayable
 {
     private $quantidade;
     private $produto;
@@ -15,6 +16,11 @@ class ProdutoPedido
         $this->quantidade = $quantidade;
     }
 
+    public function id()
+    {
+        return $this->produto->id();
+    }
+
     public function valorTotal()
     {
         return $this->produto->valor() * $this->quantidade;
@@ -23,5 +29,14 @@ class ProdutoPedido
     public function quantidade()
     {
         return $this->quantidade;
+    }
+
+    public function toArray()
+    {
+        $array = [
+            'quantidade' => $this->quantidade,
+            'valor_total' => $this->valorTotal()
+        ];
+        return array_merge($this->produto->toArray(), $array);
     }
 }

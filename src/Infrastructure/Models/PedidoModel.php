@@ -9,7 +9,7 @@ class PedidoModel extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'lista_de_compras';
-    protected $fillable = ['id', 'data_compra'];
+    protected $table = 'pedidos';
+    protected $fillable = ['data_pedido'];
     protected $hidden = ['created_at', 'update_at', 'deleted_at'];
 }

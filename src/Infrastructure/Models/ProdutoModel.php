@@ -10,6 +10,6 @@ class ProdutoModel extends Model
     use SoftDeletes;
 
     protected $table = 'produtos';
-    protected $fillable = ['id', 'nome', 'descricao', 'valor', 'categoria'];
+    protected $fillable = ['nome', 'descricao', 'valor', 'categoria'];
     protected $hidden = ['created_at', 'update_at', 'deleted_at'];
 }

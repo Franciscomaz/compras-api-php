@@ -43,13 +43,13 @@ class ProdutosRepository implements IProdutoRepository
         if ($produto->isEmpty()) {
             throw new Exception('Produto não encontrado: ' . $id);
         }
-        return ProdutoFactory::criar($produto);
+        return ProdutoFactory::criar($produto->first());
     }
 
     public function atualizar(Produto $produto): Produto
     {
         try {
-            Produto::where('id', $produto->id())
+            ProdutoModel::where('id', $produto->id())
                 ->update($produto->toArray());
             return $produto;
         } catch (\Exception $exception) {

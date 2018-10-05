@@ -11,14 +11,12 @@ class Produto implements Arrayable, Jsonable
     private $nome;
     private $descricao;
     private $valor;
-    private $categoria;
 
-    public function __construct($nome, $descricao, $valor, $categoria)
+    public function __construct($nome, $descricao, $valor)
     {
         $this->nome = $nome;
         $this->descricao = $descricao;
         $this->valor = $valor;
-        $this->categoria = $categoria;
     }
 
     public function id()
@@ -29,6 +27,7 @@ class Produto implements Arrayable, Jsonable
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     public function nome()
@@ -46,19 +45,13 @@ class Produto implements Arrayable, Jsonable
         return $this->valor;
     }
 
-    public function categoria()
-    {
-        return $this->categoria;
-    }
-
     public function toArray()
     {
         return [
             'id' => $this->id,
             'nome' => $this->nome,
             'descricao' => $this->descricao,
-            'valor' => $this->valor,
-            'categoria' => $this->categoria
+            'valor' => $this->valor
         ];
     }
 

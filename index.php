@@ -22,7 +22,15 @@ $config = [
 ];
 $app = new \Slim\App($config);
 
-require __DIR__.'/routes/compras.php';
+$app->add(function ($req, $res, $next) {
+    $response = $next($req, $res);
+    return $response
+        ->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+});
+
+require __DIR__.'/routes/pedidos.php';
 require __DIR__.'/routes/produtos.php';
 
 $app->run();

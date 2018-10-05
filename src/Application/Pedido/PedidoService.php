@@ -19,7 +19,7 @@ class PedidoService
 
     public function realizarPedido($dados): Pedido
     {
-        if(isset($dados['produtos'])) {
+        if(!isset($dados['produtos'])) {
             throw new \Exception('Nenhum produto foi informado.');
         }
 
@@ -34,11 +34,14 @@ class PedidoService
 
     public function pedidosRealizados(): array
     {
-
+        $pedidos = $this->pedidoRepository->listar();
+        return !empty($pedidos) ? array_map(function (Pedido $pedido) {
+            return $pedido->toArray();
+        }, $pedidos) : [];
     }
 
     public function buscar($id)
     {
-
+        return $this->pedidoRepository->buscar($id);
     }
 }

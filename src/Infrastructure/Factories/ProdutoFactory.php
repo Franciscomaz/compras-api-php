@@ -8,13 +8,12 @@ class ProdutoFactory
 {
     public static function criar($registro)
     {
-        return new Produto(
-            $registro->id,
+        $produto = new Produto(
             $registro->nome,
             $registro->descricao,
-            $registro->valor,
-            $registro->categoria
+            $registro->valor
         );
+        return $produto->setId($registro['id']);
     }
 }
 
